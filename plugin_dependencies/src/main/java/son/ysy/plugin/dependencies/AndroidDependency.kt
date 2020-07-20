@@ -268,6 +268,17 @@ sealed class AndroidDependency(
     }
 
     /**
+     * 任务管理器
+     * https://developer.android.com/jetpack/androidx/releases/work
+     */
+    sealed class WorkerManager(
+        name: String
+    ) : AndroidDependency("androidx.work", name, "2.4.0-rc01") {
+        object Core : WorkerManager("work-runtime-ktx")
+        object AndroidTest : WorkerManager("work-testing")
+    }
+
+    /**
      * 多功能工具包
      * https://github.com/Blankj/AndroidUtilCode
      */
