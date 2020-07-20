@@ -70,7 +70,7 @@ sealed class AndroidDependency(
 
     /**
      *Glide图片加载
-     *
+     *https://github.com/bumptech/glide
      */
     sealed class Glide(
         name: String
