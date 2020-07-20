@@ -1,0 +1,4 @@
+include ':plugin_build'
+include ':plugin_dependencies'
+include ':app'
+rootProject.name = "AndroidPluginList"

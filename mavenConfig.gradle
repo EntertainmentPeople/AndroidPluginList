@@ -1,0 +1,5 @@
+ext {
+    mavenUrl = "https://packages.aliyun.com/maven/repository/2013042-release-exUXVM/"
+    mavenUserName = ""
+    mavenPassword = ""
+}
