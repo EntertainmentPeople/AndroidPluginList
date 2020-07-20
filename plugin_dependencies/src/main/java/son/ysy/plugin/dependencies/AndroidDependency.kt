@@ -263,7 +263,7 @@ sealed class AndroidDependency(
      */
     sealed class XPopup(
         name: String
-    ) : AndroidDependency("com.lxj", name, "2.0.8-rcc") {
+    ) : AndroidDependency("com.lxj", name, "2.0.8-rc2") {
         object Core : XPopup("xpopup")
     }
 
