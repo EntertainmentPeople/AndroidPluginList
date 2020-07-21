@@ -263,7 +263,7 @@ sealed class AndroidDependency(
      */
     sealed class XPopup(
         name: String
-    ) : AndroidDependency("com.lxj", name, "2.0.8-rc2") {
+    ) : AndroidDependency("com.lxj", name, "2.0.8-rc5") {
         object Core : XPopup("xpopup")
     }
 
@@ -324,5 +324,5 @@ sealed class AndroidDependency(
      * 自动消失LiveData
      * https://github.com/KunMinX/UnPeek-LiveData
      */
-    object UnPeekLiveData : AndroidDependency("com.kunminx.archi", "unpeek-livedata", "2.9.7-beta4")
+    object UnPeekLiveData : AndroidDependency("com.kunminx.archi", "unpeek-livedata", "2.9.9-beta5")
 }
