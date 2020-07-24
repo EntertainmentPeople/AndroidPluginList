@@ -324,5 +324,11 @@ sealed class AndroidDependency(
      * 自动消失LiveData
      * https://github.com/KunMinX/UnPeek-LiveData
      */
-    object UnPeekLiveData : AndroidDependency("com.kunminx.archi", "unpeek-livedata", "2.9.9-beta5")
+    object UnPeekLiveData : AndroidDependency("com.kunminx.archi", "unpeek-livedata", "3.0.9-beta7")
+
+    /**
+     * 内存泄露监控
+     * https://square.github.io/leakcanary/getting_started/
+     */
+    object LeakCanary:AndroidDependency("com.squareup.leakcanary", "leakcanary-android", "2.4")
 }
