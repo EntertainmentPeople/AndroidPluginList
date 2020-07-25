@@ -211,7 +211,7 @@ sealed class AndroidDependency(
         object Recyclerview : AndroidDependency(
             "androidx.recyclerview",
             "recyclerview",
-            "1.2.0-alpha04"
+            "1.2.0-alpha05"
         )
 
         /**
