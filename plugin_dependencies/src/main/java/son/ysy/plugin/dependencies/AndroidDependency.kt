@@ -151,7 +151,7 @@ sealed class AndroidDependency(
      */
     sealed class Paris(
         name: String
-    ) : AndroidDependency("com.airbnb.android", name, "1.5.0") {
+    ) : AndroidDependency("com.airbnb.android", name, "1.6.0") {
         object Core : Paris("paris")
         object Compiler : Paris("paris-processor")
     }
