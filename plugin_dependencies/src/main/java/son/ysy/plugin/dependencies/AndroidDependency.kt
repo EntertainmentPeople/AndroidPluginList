@@ -51,7 +51,7 @@ sealed class AndroidDependency(
      */
     sealed class Coroutines(
         name: String
-    ) : AndroidDependency("org.jetbrains.kotlinx", name, "1.3.7") {
+    ) : AndroidDependency("org.jetbrains.kotlinx", name, "1.3.8") {
         object Core : Coroutines("kotlinx-coroutines-android")
         object Test : Coroutines("kotlinx-coroutines-test")
     }
