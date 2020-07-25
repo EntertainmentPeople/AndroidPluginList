@@ -173,7 +173,7 @@ sealed class AndroidDependency(
      */
     sealed class Room(
         name: String
-    ) : AndroidDependency("androidx.room", name, "2.3.0-alpha01") {
+    ) : AndroidDependency("androidx.room", name, "2.3.0-alpha02") {
         object Core : Room("room-runtime")
         object Ktx : Room("room-ktx")
         object Compiler : Room("room-compiler")
