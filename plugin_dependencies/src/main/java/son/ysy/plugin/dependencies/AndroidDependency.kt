@@ -273,7 +273,7 @@ sealed class AndroidDependency(
      */
     sealed class WorkerManager(
         name: String
-    ) : AndroidDependency("androidx.work", name, "2.4.0-rc01") {
+    ) : AndroidDependency("androidx.work", name, "2.4.0") {
         object Core : WorkerManager("work-runtime-ktx")
         object AndroidTest : WorkerManager("work-testing")
     }
