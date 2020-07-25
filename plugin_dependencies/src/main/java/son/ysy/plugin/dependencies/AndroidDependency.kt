@@ -140,7 +140,7 @@ sealed class AndroidDependency(
      */
     sealed class OkHttp(
         name: String
-    ) : AndroidDependency("com.squareup.okhttp3", name, "4.7.2") {
+    ) : AndroidDependency("com.squareup.okhttp3", name, "4.8.0") {
         object Core : OkHttp("okhttp")
         object Mock : OkHttp("mockwebserver")
         object Interceptor : OkHttp("logging-interceptor")
