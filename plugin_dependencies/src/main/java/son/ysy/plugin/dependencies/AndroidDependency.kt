@@ -125,7 +125,7 @@ sealed class AndroidDependency(
      */
     sealed class Lifecycle(
         name: String
-    ) : AndroidDependency("androidx.lifecycle", name, "2.3.0-alpha05") {
+    ) : AndroidDependency("androidx.lifecycle", name, "2.3.0-alpha06") {
         object ViewModel : Lifecycle("lifecycle-viewmodel-ktx")
         object Common : Lifecycle("lifecycle-common")
         object LiveData : Lifecycle("lifecycle-livedata-ktx")
