@@ -118,6 +118,7 @@ sealed class AndroidDependency(
         object Scope : Koin("koin-androidx-scope")
         object ViewModel : Koin("koin-androidx-viewmodel")
         object Ext : Koin("koin-androidx-ext")
+        object Test : Koin("koin-test")
     }
 
     /**
@@ -332,5 +333,5 @@ sealed class AndroidDependency(
      * 内存泄露监控
      * https://square.github.io/leakcanary/getting_started/
      */
-    object LeakCanary:AndroidDependency("com.squareup.leakcanary", "leakcanary-android", "2.4")
+    object LeakCanary : AndroidDependency("com.squareup.leakcanary", "leakcanary-android", "2.4")
 }
