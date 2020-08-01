@@ -177,6 +177,8 @@ sealed class AndroidDependency(
         object Core : Room("room-runtime")
         object Ktx : Room("room-ktx")
         object Compiler : Room("room-compiler")
+        object Test : Room("room-testing")
+
     }
 
     class Test {
