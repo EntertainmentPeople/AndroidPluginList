@@ -326,7 +326,7 @@ sealed class AndroidDependency(
      * 自动消失LiveData
      * https://github.com/KunMinX/UnPeek-LiveData
      */
-    object UnPeekLiveData : AndroidDependency("com.kunminx.archi", "unpeek-livedata", "3.0.9-beta7")
+    object UnPeekLiveData : AndroidDependency("com.kunminx.archi", "unpeek-livedata", "3.2.3-beta9")
 
     /**
      * 内存泄露监控
