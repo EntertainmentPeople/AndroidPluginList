@@ -38,7 +38,7 @@ sealed class AndroidDependency(
      */
     sealed class Component(
         name: String
-    ) : AndroidDependency("com.github.xiaojinzi123.Component", name, "v1.8.3-androidx") {
+    ) : AndroidDependency("com.github.xiaojinzi123.Component", name, "v1.8.3.1-androidx-java8") {
 
         object Core : Component("component-impl")
         object Compiler : Component("component-compiler")
