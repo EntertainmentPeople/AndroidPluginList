@@ -179,7 +179,6 @@ sealed class AndroidDependency(
         object Ktx : Room("room-ktx")
         object Compiler : Room("room-compiler")
         object Test : Room("room-testing")
-
     }
 
     class Test {
@@ -189,6 +188,15 @@ sealed class AndroidDependency(
     }
 
     class View {
+
+        /**
+         * https://github.com/material-components/material-components-android
+         */
+        object Material: AndroidDependency(
+            "com.google.android.material",
+            "material",
+            "1.3.0-alpha02"
+        )
         /**
          * https://developer.android.com/jetpack/androidx/releases/viewpager2
          */
@@ -256,8 +264,6 @@ sealed class AndroidDependency(
             "realtimeblurview",
             "1.2.1"
         )
-
-
     }
 
     /**
