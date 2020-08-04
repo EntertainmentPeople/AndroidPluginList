@@ -30,6 +30,14 @@ sealed class AndroidDependency(
             "asynclayoutinflater",
             "1.0.0"
         )
+        /**
+         *  https://developer.android.com/jetpack/androidx/releases/activity
+         */
+        object Activity : AndroidDependency(
+            "androidx.activity",
+            "activity-ktx",
+            "1.2.0-alpha07"
+        )
     }
 
     /**

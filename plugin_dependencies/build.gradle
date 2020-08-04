@@ -41,6 +41,6 @@ uploadArchives {
         }
         pom.groupId = "son.ysy.plugin"
         pom.artifactId = "dependencies"
-        pom.version = "1.1.1"
+        pom.version = "1.1.2"
     }
 }
