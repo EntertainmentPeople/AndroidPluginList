@@ -25,8 +25,9 @@
       - [CoreKtx](https://developer.android.com/jetpack/androidx/releases/core)
       - [AsyncInflater](https://developer.android.com/jetpack/androidx/releases/asynclayoutinflater)  
         异步加载布局
+      - [Activity](https://developer.android.com/jetpack/androidx/releases/activity)
 
-   2. Fragment
+   2. [Fragment](https://developer.android.com/jetpack/androidx/releases/fragment)
       - Core
       - Test 
 
