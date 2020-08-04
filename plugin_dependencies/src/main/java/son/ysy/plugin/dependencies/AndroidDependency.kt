@@ -33,6 +33,19 @@ sealed class AndroidDependency(
     }
 
     /**
+     *  https://developer.android.com/jetpack/androidx/releases/fragment
+     */
+    sealed class Fragment(name: String) : AndroidDependency(
+        "androidx.fragment",
+        name,
+        "1.3.0-alpha07"
+    ) {
+        object Core : Fragment("fragment")
+
+        object Test : Fragment("fragment-testing")
+    }
+
+    /**
      * 组件化实现方案
      * https://github.com/xiaojinzi123/Component
      */
@@ -192,11 +205,12 @@ sealed class AndroidDependency(
         /**
          * https://github.com/material-components/material-components-android
          */
-        object Material: AndroidDependency(
+        object Material : AndroidDependency(
             "com.google.android.material",
             "material",
             "1.3.0-alpha02"
         )
+
         /**
          * https://developer.android.com/jetpack/androidx/releases/viewpager2
          */
@@ -333,7 +347,8 @@ sealed class AndroidDependency(
      * 自动消失LiveData
      * https://github.com/KunMinX/UnPeek-LiveData
      */
-    object UnPeekLiveData : AndroidDependency("com.kunminx.archi", "unpeek-livedata", "3.2.3-beta10")
+    object UnPeekLiveData :
+        AndroidDependency("com.kunminx.archi", "unpeek-livedata", "3.2.3-beta10")
 
     /**
      * 内存泄露监控
