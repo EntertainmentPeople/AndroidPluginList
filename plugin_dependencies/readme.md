@@ -136,6 +136,8 @@
 
    18. [WorkerManager](https://developer.android.com/jetpack/androidx/releases/work)  
           任务管理器
+       - Core
+       - AndroidTest
 
    19. [AndroidUtil](https://github.com/Blankj/AndroidUtilCode)  
           多功能工具包
