@@ -30,6 +30,7 @@ sealed class AndroidDependency(
             "asynclayoutinflater",
             "1.0.0"
         )
+
         /**
          *  https://developer.android.com/jetpack/androidx/releases/activity
          */
@@ -59,7 +60,7 @@ sealed class AndroidDependency(
      */
     sealed class Component(
         name: String
-    ) : AndroidDependency("com.github.xiaojinzi123.Component", name, "v1.8.3.1-androidx-java8") {
+    ) : AndroidDependency("com.github.xiaojinzi123.Component", name, "v1.8.3.2-androidx-java8") {
 
         object Core : Component("component-impl")
         object Compiler : Component("component-compiler")
@@ -355,8 +356,11 @@ sealed class AndroidDependency(
      * 自动消失LiveData
      * https://github.com/KunMinX/UnPeek-LiveData
      */
-    object UnPeekLiveData :
-        AndroidDependency("com.kunminx.archi", "unpeek-livedata", "3.2.3-beta10")
+    object UnPeekLiveData : AndroidDependency(
+        "com.kunminx.archi",
+        "unpeek-livedata",
+        "3.2.3-beta10"
+    )
 
     /**
      * 内存泄露监控
