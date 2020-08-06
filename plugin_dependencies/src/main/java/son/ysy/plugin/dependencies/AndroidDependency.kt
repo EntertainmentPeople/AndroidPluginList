@@ -287,6 +287,16 @@ sealed class AndroidDependency(
             "realtimeblurview",
             "1.2.1"
         )
+
+        /**
+         * 下拉刷新控件
+         *  https://developer.android.com/jetpack/androidx/releases/swiperefreshlayout
+         */
+        object SwipeRefreshLayout: AndroidDependency(
+            "androidx.swiperefreshlayout",
+            "swiperefreshlayout",
+            "1.2.0-alpha01"
+        )
     }
 
     /**
