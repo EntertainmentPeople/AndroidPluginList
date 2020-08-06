@@ -41,6 +41,6 @@ uploadArchives {
         }
         pom.groupId = "son.ysy.plugin"
         pom.artifactId = "build"
-        pom.version = "1.0.1"
+        pom.version = "1.0.2"
     }
 }
