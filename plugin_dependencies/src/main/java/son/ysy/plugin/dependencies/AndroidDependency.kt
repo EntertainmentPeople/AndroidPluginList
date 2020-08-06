@@ -205,8 +205,8 @@ sealed class AndroidDependency(
 
     class Test {
         object Junit : AndroidDependency("junit", "junit", "4.13")
-        object JunitExt : AndroidDependency("androidx.test.ext", "junit", "1.1.1")
-        object Espresso : AndroidDependency("androidx.test.espresso", "espresso-core", "3.2.0")
+        object JunitExt : AndroidDependency("androidx.test.ext", "junit", "1.1.2-rc02")
+        object Espresso : AndroidDependency("androidx.test.espresso", "espresso-core", "3.3.0-rc02")
     }
 
     class View {
