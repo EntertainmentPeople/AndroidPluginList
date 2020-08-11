@@ -305,6 +305,17 @@ sealed class AndroidDependency(
             "MarqueeView",
             "1.4.1"
         )
+
+
+        /**
+         * 轮播控件
+         *  https://github.com/youth5201314/banner
+         */
+        object BannerView : AndroidDependency(
+            "com.youth.banner",
+            "banner",
+            "2.1.0"
+        )
     }
 
     /**

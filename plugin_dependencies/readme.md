@@ -133,6 +133,8 @@
           下拉刷新
        - [MarqueeView](https://github.com/sunfusheng/MarqueeView)  
           跑马灯
+       - [BannerView](https://github.com/youth5201314/banner)  
+          轮播
 
    17. [XPopup](https://github.com/li-xiaojun/XPopup)  
           弹窗框架
