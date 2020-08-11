@@ -44,11 +44,9 @@ sealed class AndroidDependency(
     /**
      *  https://developer.android.com/jetpack/androidx/releases/fragment
      */
-    sealed class Fragment(name: String) : AndroidDependency(
-        "androidx.fragment",
-        name,
-        "1.3.0-alpha07"
-    ) {
+    sealed class Fragment(
+        name: String
+    ) : AndroidDependency("androidx.fragment", name, "1.3.0-alpha07") {
         object Core : Fragment("fragment")
 
         object Test : Fragment("fragment-testing")
@@ -92,7 +90,7 @@ sealed class AndroidDependency(
 
     /**
      *Glide图片加载
-     *https://github.com/bumptech/glide
+     *  https://github.com/bumptech/glide
      */
     sealed class Glide(
         name: String
@@ -144,7 +142,7 @@ sealed class AndroidDependency(
     }
 
     /**
-     *https://developer.android.com/jetpack/androidx/releases/lifecycle
+     *  https://developer.android.com/jetpack/androidx/releases/lifecycle
      */
     sealed class Lifecycle(
         name: String
@@ -163,7 +161,7 @@ sealed class AndroidDependency(
      */
     sealed class OkHttp(
         name: String
-    ) : AndroidDependency("com.squareup.okhttp3", name, "4.8.0") {
+    ) : AndroidDependency("com.squareup.okhttp3", name, "4.8.1") {
         object Core : OkHttp("okhttp")
         object Mock : OkHttp("mockwebserver")
         object Interceptor : OkHttp("logging-interceptor")
@@ -260,7 +258,7 @@ sealed class AndroidDependency(
 
         /**
          * 动画框架
-         *https://github.com/airbnb/lottie-android
+         *  https://github.com/airbnb/lottie-android
          */
         object LottieView : AndroidDependency(
             "com.airbnb.android",
@@ -270,7 +268,7 @@ sealed class AndroidDependency(
 
         /**
          * 高斯模糊
-         *https://github.com/HokoFly/HokoBlur
+         *  https://github.com/HokoFly/HokoBlur
          */
         object BlurView : AndroidDependency(
             "com.hoko",
@@ -280,7 +278,7 @@ sealed class AndroidDependency(
 
         /**
          * 实时背景高斯模糊
-         *https://github.com/mmin18/RealtimeBlurView
+         *  https://github.com/mmin18/RealtimeBlurView
          */
         object RealTimeBlurView : AndroidDependency(
             "com.github.mmin18",
@@ -292,10 +290,20 @@ sealed class AndroidDependency(
          * 下拉刷新控件
          *  https://developer.android.com/jetpack/androidx/releases/swiperefreshlayout
          */
-        object SwipeRefreshLayout: AndroidDependency(
+        object SwipeRefreshLayout : AndroidDependency(
             "androidx.swiperefreshlayout",
             "swiperefreshlayout",
             "1.2.0-alpha01"
+        )
+
+        /**
+         * 跑马灯控件
+         *  https://github.com/sunfusheng/MarqueeView
+         */
+        object MarqueeView : AndroidDependency(
+            "com.sunfusheng",
+            "MarqueeView",
+            "1.4.1"
         )
     }
 
@@ -330,13 +338,13 @@ sealed class AndroidDependency(
      * app启动初始化管理
      * https://github.com/YummyLau/Anchors/blob/master/README-zh.md
      */
-    object Anchors : AndroidDependency("com.effective.android", "anchors", "1.1.0")
+    object Anchors : AndroidDependency("com.effective.android", "anchors", "1.1.1")
 
     /**
      * 持久KV数据存储
      * https://github.com/Tencent/MMKV/blob/master/readme_cn.md
      */
-    object Mmkv : AndroidDependency("com.tencent", "mmkv-static", "1.2.1")
+    object Mmkv : AndroidDependency("com.tencent", "mmkv-static", "1.2.2")
 
     /**
      * 颜色帮助库

@@ -131,6 +131,8 @@
             实时背景高斯模糊
        - [SwipeRefreshLayout](https://developer.android.com/jetpack/androidx/releases/swiperefreshlayout)  
           下拉刷新
+       - [MarqueeView](https://github.com/sunfusheng/MarqueeView)  
+          跑马灯
 
    17. [XPopup](https://github.com/li-xiaojun/XPopup)  
           弹窗框架
