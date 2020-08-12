@@ -312,9 +312,9 @@ sealed class AndroidDependency(
          *  https://github.com/youth5201314/banner
          */
         object BannerView : AndroidDependency(
-            "com.youth.banner",
-            "banner",
-            "2.1.0"
+            "com.github.xiaohaibin",
+            "XBanner",
+            "androidx_v1.1.0"
         )
     }
 
