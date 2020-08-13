@@ -135,6 +135,8 @@
           跑马灯
        - [BannerView](https://github.com/youth5201314/banner)  
           轮播
+       - [ShadowLayout](https://github.com/lihangleo2/ShadowLayout)  
+         阴影控件
 
    17. [XPopup](https://github.com/li-xiaojun/XPopup)  
           弹窗框架

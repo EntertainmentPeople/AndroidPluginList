@@ -1,9 +1,9 @@
 package son.ysy.plugin.dependencies
 
 sealed class AndroidDependency(
-    private val group: String,
-    private val name: String,
-    private val newestVersion: String
+    val group: String,
+    val name: String,
+    val newestVersion: String
 ) {
     val newest: String
         get() = custom(newestVersion)
@@ -82,7 +82,7 @@ sealed class AndroidDependency(
      */
     sealed class Epoxy(
         name: String
-    ) : AndroidDependency("com.airbnb.android", name, "3.11.0") {
+    ) : AndroidDependency("com.airbnb.android", name, "4.0.0-beta6") {
         object Core : Epoxy("epoxy")
         object Compiler : Epoxy("epoxy-processor")
         object Glide : Epoxy("epoxy-glide-preloading")
@@ -315,6 +315,15 @@ sealed class AndroidDependency(
             "com.github.xiaohaibin",
             "XBanner",
             "androidx_v1.1.0"
+        )
+
+        /**
+         * 阴影控件
+         */
+        object ShadowLayout : AndroidDependency(
+            "com.github.lihangleo2",
+            "ShadowLayout",
+            "3.0.1"
         )
     }
 
