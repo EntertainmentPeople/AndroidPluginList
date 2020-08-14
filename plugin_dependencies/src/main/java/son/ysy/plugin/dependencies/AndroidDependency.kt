@@ -135,6 +135,7 @@ sealed class AndroidDependency(
     sealed class Koin(
         name: String
     ) : AndroidDependency("org.koin", name, "2.1.6") {
+        object Core : Koin("koin-core")
         object Scope : Koin("koin-androidx-scope")
         object ViewModel : Koin("koin-androidx-viewmodel")
         object Ext : Koin("koin-androidx-ext")
@@ -324,6 +325,14 @@ sealed class AndroidDependency(
             "com.github.lihangleo2",
             "ShadowLayout",
             "3.0.1"
+        )
+        /**
+         * webView颜色
+         */
+        object AgentWeb : AndroidDependency(
+            "com.just.agentweb",
+            "agentweb",
+            "4.1.3"
         )
     }
 

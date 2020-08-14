@@ -74,6 +74,7 @@
    9. [Koin](https://github.com/InsertKoinIO/koin)  
         依赖注入库
 
+      - Core
       - Scope
       - ViewModel
       - Ext
@@ -137,6 +138,8 @@
           轮播
        - [ShadowLayout](https://github.com/lihangleo2/ShadowLayout)  
          阴影控件
+       - [AgentWeb](https://github.com/Justson/AgentWeb)  
+         WebView
 
    17. [XPopup](https://github.com/li-xiaojun/XPopup)  
           弹窗框架
