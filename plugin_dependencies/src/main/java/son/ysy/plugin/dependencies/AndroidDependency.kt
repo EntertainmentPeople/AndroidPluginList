@@ -71,7 +71,7 @@ sealed class AndroidDependency(
      */
     sealed class Coroutines(
         name: String
-    ) : AndroidDependency("org.jetbrains.kotlinx", name, "1.3.8") {
+    ) : AndroidDependency("org.jetbrains.kotlinx", name, "1.3.9") {
         object Core : Coroutines("kotlinx-coroutines-android")
         object Test : Coroutines("kotlinx-coroutines-test")
     }
@@ -123,7 +123,7 @@ sealed class AndroidDependency(
      */
     sealed class Kotlin(
         name: String
-    ) : AndroidDependency("org.jetbrains.kotlin", name, "1.3.72") {
+    ) : AndroidDependency("org.jetbrains.kotlin", name, "1.4.0") {
         object Stdlib : Kotlin("kotlin-stdlib")
         object Reflect : Kotlin("kotlin-reflect")
     }
