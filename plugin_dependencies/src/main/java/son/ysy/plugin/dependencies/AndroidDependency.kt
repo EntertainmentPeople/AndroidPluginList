@@ -10,7 +10,7 @@ sealed class AndroidDependency(
 
     fun custom(version: String): String = "$group:$name:$version"
 
-    class AndroidX {
+    object AndroidX {
         /**
          * https://developer.android.com/jetpack/androidx/releases/appcompat
          */
@@ -123,7 +123,7 @@ sealed class AndroidDependency(
      */
     sealed class Kotlin(
         name: String
-    ) : AndroidDependency("org.jetbrains.kotlin", name, "1.4.0") {
+    ) : AndroidDependency("org.jetbrains.kotlin", name, "1.3.72") {
         object Stdlib : Kotlin("kotlin-stdlib")
         object Reflect : Kotlin("kotlin-reflect")
     }
@@ -202,7 +202,7 @@ sealed class AndroidDependency(
         object Test : Room("room-testing")
     }
 
-    class Test {
+    object Test {
         object Junit : AndroidDependency("junit", "junit", "4.13")
         object JunitExt : AndroidDependency("androidx.test.ext", "junit", "1.1.2-rc02")
         object Espresso : AndroidDependency("androidx.test.espresso", "espresso-core", "3.3.0-rc02")
@@ -326,6 +326,7 @@ sealed class AndroidDependency(
             "ShadowLayout",
             "3.0.1"
         )
+
         /**
          * webView颜色
          */
