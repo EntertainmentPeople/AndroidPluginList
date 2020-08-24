@@ -235,7 +235,7 @@ sealed class AndroidDependency(
         object ConstraintLayout : AndroidDependency(
             "androidx.constraintlayout",
             "constraintlayout",
-            "2.0.0-rc1"
+            "2.0.0"
         )
 
         /**
