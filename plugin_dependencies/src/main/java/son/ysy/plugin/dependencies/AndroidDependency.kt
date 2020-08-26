@@ -14,12 +14,12 @@ sealed class AndroidDependency(
         /**
          * https://developer.android.com/jetpack/androidx/releases/appcompat
          */
-        object Appcompat : AndroidDependency("androidx.appcompat", "appcompat", "1.3.0-alpha01")
+        object Appcompat : AndroidDependency("androidx.appcompat", "appcompat", "1.3.0-alpha02")
 
         /**
          * https://developer.android.com/jetpack/androidx/releases/core
          */
-        object CoreKtx : AndroidDependency("androidx.core", "core-ktx", "1.5.0-alpha01")
+        object CoreKtx : AndroidDependency("androidx.core", "core-ktx", "1.5.0-alpha02")
 
         /**
          * 异步加载布局
@@ -37,7 +37,7 @@ sealed class AndroidDependency(
         object Activity : AndroidDependency(
             "androidx.activity",
             "activity-ktx",
-            "1.2.0-alpha07"
+            "1.2.0-alpha08"
         )
     }
 
@@ -46,7 +46,7 @@ sealed class AndroidDependency(
      */
     sealed class Fragment(
         name: String
-    ) : AndroidDependency("androidx.fragment", name, "1.3.0-alpha07") {
+    ) : AndroidDependency("androidx.fragment", name, "1.3.0-alpha08") {
         object Core : Fragment("fragment")
 
         object Test : Fragment("fragment-testing")
@@ -147,7 +147,7 @@ sealed class AndroidDependency(
      */
     sealed class Lifecycle(
         name: String
-    ) : AndroidDependency("androidx.lifecycle", name, "2.3.0-alpha06") {
+    ) : AndroidDependency("androidx.lifecycle", name, "2.3.0-alpha07") {
         object ViewModel : Lifecycle("lifecycle-viewmodel-ktx")
         object Common : Lifecycle("lifecycle-common")
         object LiveData : Lifecycle("lifecycle-livedata-ktx")
@@ -235,7 +235,7 @@ sealed class AndroidDependency(
         object ConstraintLayout : AndroidDependency(
             "androidx.constraintlayout",
             "constraintlayout",
-            "2.0.0"
+            "2.0.1"
         )
 
         /**
@@ -328,12 +328,12 @@ sealed class AndroidDependency(
         )
 
         /**
-         * webView颜色
+         * webView
          */
         object AgentWeb : AndroidDependency(
             "com.just.agentweb",
             "agentweb",
-            "4.1.3"
+            "4.1.4"
         )
     }
 
@@ -353,7 +353,7 @@ sealed class AndroidDependency(
      */
     sealed class WorkerManager(
         name: String
-    ) : AndroidDependency("androidx.work", name, "2.4.0") {
+    ) : AndroidDependency("androidx.work", name, "2.5.0-alpha01") {
         object Core : WorkerManager("work-runtime-ktx")
         object AndroidTest : WorkerManager("work-testing")
     }
