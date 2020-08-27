@@ -123,7 +123,7 @@ sealed class AndroidDependency(
      */
     sealed class Kotlin(
         name: String
-    ) : AndroidDependency("org.jetbrains.kotlin", name, "1.3.72") {
+    ) : AndroidDependency("org.jetbrains.kotlin", name, "1.4.0") {
         object Stdlib : Kotlin("kotlin-stdlib")
         object Reflect : Kotlin("kotlin-reflect")
     }
@@ -134,7 +134,7 @@ sealed class AndroidDependency(
      */
     sealed class Koin(
         name: String
-    ) : AndroidDependency("org.koin", name, "2.1.6") {
+    ) : AndroidDependency("org.koin", name, "2.2.0-alpha-1") {
         object Core : Koin("koin-core")
         object Scope : Koin("koin-androidx-scope")
         object ViewModel : Koin("koin-androidx-viewmodel")
