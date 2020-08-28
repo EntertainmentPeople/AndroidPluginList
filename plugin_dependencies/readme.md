@@ -127,10 +127,8 @@
             底部导航
        - [LottieView](https://github.com/airbnb/lottie-android)  
             动画框架
-       - [BlurView](https://github.com/HokoFly/HokoBlur)  
+       - [BlurView](https://github.com/Dimezis/BlurView)
             高斯模糊
-       - [RealTimeBlurView](https://github.com/mmin18/RealtimeBlurView)  
-            实时背景高斯模糊
        - [SwipeRefreshLayout](https://developer.android.com/jetpack/androidx/releases/swiperefreshlayout)  
           下拉刷新
        - [MarqueeView](https://github.com/sunfusheng/MarqueeView)  

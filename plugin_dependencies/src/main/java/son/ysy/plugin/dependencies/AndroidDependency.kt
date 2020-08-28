@@ -3,12 +3,16 @@ package son.ysy.plugin.dependencies
 sealed class AndroidDependency(
     val group: String,
     val name: String,
-    val newestVersion: String
+    var version: String
 ) {
     val newest: String
-        get() = custom(newestVersion)
+        get() = build(version)
 
-    fun custom(version: String): String = "$group:$name:$version"
+    private fun build(version: String) = "$group:$name:$version"
+
+    fun custom(version: String) {
+        this.version = version
+    }
 
     object AndroidX {
         /**
@@ -269,22 +273,12 @@ sealed class AndroidDependency(
 
         /**
          * 高斯模糊
-         *  https://github.com/HokoFly/HokoBlur
+         *  https://github.com/Dimezis/BlurView
          */
         object BlurView : AndroidDependency(
-            "com.hoko",
-            "hoko-blur",
-            "1.3.5"
-        )
-
-        /**
-         * 实时背景高斯模糊
-         *  https://github.com/mmin18/RealtimeBlurView
-         */
-        object RealTimeBlurView : AndroidDependency(
-            "com.github.mmin18",
-            "realtimeblurview",
-            "1.2.1"
+            "com.eightbitlab",
+            "blurview",
+            "1.6.3"
         )
 
         /**
@@ -306,7 +300,6 @@ sealed class AndroidDependency(
             "MarqueeView",
             "1.4.1"
         )
-
 
         /**
          * 轮播控件
