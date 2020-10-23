@@ -23,7 +23,7 @@ sealed class AndroidDependency(
         /**
          * https://developer.android.com/jetpack/androidx/releases/core
          */
-        object CoreKtx : AndroidDependency("androidx.core", "core-ktx", "1.5.0-alpha02")
+        object CoreKtx : AndroidDependency("androidx.core", "core-ktx", "1.5.0-alpha04")
 
         /**
          * 异步加载布局
@@ -41,7 +41,7 @@ sealed class AndroidDependency(
         object Activity : AndroidDependency(
             "androidx.activity",
             "activity-ktx",
-            "1.2.0-alpha08"
+            "1.2.0-beta01"
         )
     }
 
@@ -50,7 +50,7 @@ sealed class AndroidDependency(
      */
     sealed class Fragment(
         name: String
-    ) : AndroidDependency("androidx.fragment", name, "1.3.0-alpha08") {
+    ) : AndroidDependency("androidx.fragment", name, "1.3.0-beta01") {
         object Core : Fragment("fragment")
 
         object Test : Fragment("fragment-testing")
@@ -62,7 +62,7 @@ sealed class AndroidDependency(
      */
     sealed class Component(
         name: String
-    ) : AndroidDependency("com.github.xiaojinzi123.Component", name, "v1.8.3.2-androidx-java8") {
+    ) : AndroidDependency("com.github.xiaojinzi123.Component", name, "v1.8.3.4-androidx-java8") {
 
         object Core : Component("component-impl")
         object Compiler : Component("component-compiler")
@@ -75,7 +75,7 @@ sealed class AndroidDependency(
      */
     sealed class Coroutines(
         name: String
-    ) : AndroidDependency("org.jetbrains.kotlinx", name, "1.3.9") {
+    ) : AndroidDependency("org.jetbrains.kotlinx", name, "1.4.0-M1") {
         object Core : Coroutines("kotlinx-coroutines-android")
         object Test : Coroutines("kotlinx-coroutines-test")
     }
@@ -86,7 +86,7 @@ sealed class AndroidDependency(
      */
     sealed class Epoxy(
         name: String
-    ) : AndroidDependency("com.airbnb.android", name, "4.0.0-beta6") {
+    ) : AndroidDependency("com.airbnb.android", name, "4.1.0") {
         object Core : Epoxy("epoxy")
         object Compiler : Epoxy("epoxy-processor")
         object Glide : Epoxy("epoxy-glide-preloading")
@@ -117,7 +117,7 @@ sealed class AndroidDependency(
      */
     sealed class MoShi(
         name: String
-    ) : AndroidDependency("com.squareup.moshi", name, "1.9.3") {
+    ) : AndroidDependency("com.squareup.moshi", name, "1.11.0") {
         object Core : MoShi("moshi")
         object Compiler : MoShi("moshi-kotlin-codegen")
     }
@@ -127,7 +127,7 @@ sealed class AndroidDependency(
      */
     sealed class Kotlin(
         name: String
-    ) : AndroidDependency("org.jetbrains.kotlin", name, "1.4.0") {
+    ) : AndroidDependency("org.jetbrains.kotlin", name, "1.4.10") {
         object Stdlib : Kotlin("kotlin-stdlib")
         object Reflect : Kotlin("kotlin-reflect")
     }
@@ -138,7 +138,7 @@ sealed class AndroidDependency(
      */
     sealed class Koin(
         name: String
-    ) : AndroidDependency("org.koin", name, "2.2.0-alpha-1") {
+    ) : AndroidDependency("org.koin", name, "2.2.0-rc-1") {
         object Core : Koin("koin-core")
         object Scope : Koin("koin-androidx-scope")
         object ViewModel : Koin("koin-androidx-viewmodel")
@@ -151,7 +151,7 @@ sealed class AndroidDependency(
      */
     sealed class Lifecycle(
         name: String
-    ) : AndroidDependency("androidx.lifecycle", name, "2.3.0-alpha07") {
+    ) : AndroidDependency("androidx.lifecycle", name, "2.3.0-beta01") {
         object ViewModel : Lifecycle("lifecycle-viewmodel-ktx")
         object Common : Lifecycle("lifecycle-common")
         object LiveData : Lifecycle("lifecycle-livedata-ktx")
@@ -166,7 +166,7 @@ sealed class AndroidDependency(
      */
     sealed class OkHttp(
         name: String
-    ) : AndroidDependency("com.squareup.okhttp3", name, "4.8.1") {
+    ) : AndroidDependency("com.squareup.okhttp3", name, "4.9.0") {
         object Core : OkHttp("okhttp")
         object Mock : OkHttp("mockwebserver")
         object Interceptor : OkHttp("logging-interceptor")
@@ -199,7 +199,7 @@ sealed class AndroidDependency(
      */
     sealed class Room(
         name: String
-    ) : AndroidDependency("androidx.room", name, "2.3.0-alpha02") {
+    ) : AndroidDependency("androidx.room", name, "2.3.0-alpha03") {
         object Core : Room("room-runtime")
         object Ktx : Room("room-ktx")
         object Compiler : Room("room-compiler")
@@ -220,7 +220,7 @@ sealed class AndroidDependency(
         object Material : AndroidDependency(
             "com.google.android.material",
             "material",
-            "1.3.0-alpha02"
+            "1.3.0-alpha03"
         )
 
         /**
@@ -239,7 +239,7 @@ sealed class AndroidDependency(
         object ConstraintLayout : AndroidDependency(
             "androidx.constraintlayout",
             "constraintlayout",
-            "2.0.1"
+            "2.0.2"
         )
 
         /**
@@ -248,7 +248,7 @@ sealed class AndroidDependency(
         object Recyclerview : AndroidDependency(
             "androidx.recyclerview",
             "recyclerview",
-            "1.2.0-alpha05"
+            "1.2.0-alpha06"
         )
 
         /**
@@ -268,7 +268,7 @@ sealed class AndroidDependency(
         object LottieView : AndroidDependency(
             "com.airbnb.android",
             "lottie",
-            "3.4.1"
+            "3.4.4"
         )
 
         /**
@@ -278,7 +278,7 @@ sealed class AndroidDependency(
         object BlurView : AndroidDependency(
             "com.eightbitlab",
             "blurview",
-            "1.6.3"
+            "1.6.4"
         )
 
         /**
@@ -317,7 +317,7 @@ sealed class AndroidDependency(
         object ShadowLayout : AndroidDependency(
             "com.github.lihangleo2",
             "ShadowLayout",
-            "3.0.1"
+            "3.0.4"
         )
 
         /**
@@ -336,7 +336,7 @@ sealed class AndroidDependency(
      */
     sealed class XPopup(
         name: String
-    ) : AndroidDependency("com.lxj", name, "2.0.8-rc5") {
+    ) : AndroidDependency("com.lxj", name, "2.1.4") {
         object Core : XPopup("xpopup")
     }
 
@@ -346,7 +346,7 @@ sealed class AndroidDependency(
      */
     sealed class WorkerManager(
         name: String
-    ) : AndroidDependency("androidx.work", name, "2.5.0-alpha01") {
+    ) : AndroidDependency("androidx.work", name, "2.5.0-alpha03") {
         object Core : WorkerManager("work-runtime-ktx")
         object AndroidTest : WorkerManager("work-testing")
     }
@@ -361,13 +361,13 @@ sealed class AndroidDependency(
      * app启动初始化管理
      * https://github.com/YummyLau/Anchors/blob/master/README-zh.md
      */
-    object Anchors : AndroidDependency("com.effective.android", "anchors", "1.1.1")
+    object Anchors : AndroidDependency("com.effective.android", "anchors", "1.1.2")
 
     /**
      * 持久KV数据存储
      * https://github.com/Tencent/MMKV/blob/master/readme_cn.md
      */
-    object Mmkv : AndroidDependency("com.tencent", "mmkv-static", "1.2.2")
+    object Mmkv : AndroidDependency("com.tencent", "mmkv-static", "1.2.4")
 
     /**
      * 颜色帮助库
@@ -391,7 +391,7 @@ sealed class AndroidDependency(
      * 时间处理库
      * https://github.com/JodaOrg/joda-time
      */
-    object JodaTime : AndroidDependency("joda-time", "joda-time", "2.10.6")
+    object JodaTime : AndroidDependency("joda-time", "joda-time", "2.10.7")
 
     /**
      * 自动消失LiveData
@@ -400,12 +400,12 @@ sealed class AndroidDependency(
     object UnPeekLiveData : AndroidDependency(
         "com.kunminx.archi",
         "unpeek-livedata",
-        "3.2.3-beta10"
+        "4.2.0-beta1"
     )
 
     /**
      * 内存泄露监控
      * https://square.github.io/leakcanary/getting_started/
      */
-    object LeakCanary : AndroidDependency("com.squareup.leakcanary", "leakcanary-android", "2.4")
+    object LeakCanary : AndroidDependency("com.squareup.leakcanary", "leakcanary-android", "2.5")
 }
