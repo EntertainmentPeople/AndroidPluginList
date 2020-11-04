@@ -139,6 +139,8 @@
          阴影控件
        - [AgentWeb](https://github.com/Justson/AgentWeb)  
          WebView
+       - [FlexBox](https://github.com/google/flexbox-layout)
+	      流式布局
 
    17. [XPopup](https://github.com/li-xiaojun/XPopup)  
           弹窗框架
@@ -165,13 +167,23 @@
           背景生成工具库
     
    24. [QrScanner](https://github.com/jenly1314/ZXingLite)  
-          二维码扫描
+         二维码扫描
 
    25. [JodaTime](https://github.com/JodaOrg/joda-time)  
-          时间处理库
+         时间处理库
    
    26. [UnPeekLiveData](https://github.com/KunMinX/UnPeek-LiveData)  
-          自动消失LiveData
+         自动消失LiveData
 
    27. [LeakCanary](https://square.github.io/leakcanary/getting_started/)  
-          内存泄露监控
+         内存泄露监控
+
+   28. [Chucker](https://github.com/ChuckerTeam/chucker)  
+         网络请求监控
+         - Debug
+         - Release
+   29. [XCrash](https://github.com/iqiyi/xCrash/blob/master/README.zh-CN.md)  
+         奔溃日志收集
+   
+   30. [Alerter](https://github.com/Tapadoo/Alerter)  
+         Alerter弹窗

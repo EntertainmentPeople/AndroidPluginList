@@ -5,14 +5,6 @@ sealed class AndroidDependency(
     val name: String,
     var version: String
 ) {
-    val newest: String
-        get() = build(version)
-
-    private fun build(version: String) = "$group:$name:$version"
-
-    fun custom(version: String) {
-        this.version = version
-    }
 
     object AndroidX {
         /**
@@ -45,6 +37,78 @@ sealed class AndroidDependency(
         )
     }
 
+    object Test {
+        object Junit : AndroidDependency("junit", "junit", "4.13")
+        object JunitExt : AndroidDependency("androidx.test.ext", "junit", "1.1.2-rc02")
+        object Espresso : AndroidDependency("androidx.test.espresso", "espresso-core", "3.3.0-rc02")
+    }
+
+    /**
+     * 多功能工具包
+     * https://github.com/Blankj/AndroidUtilCode
+     */
+    object AndroidUtil : AndroidDependency("com.blankj", "utilcodex", "1.30.0")
+
+    /**
+     * app启动初始化管理
+     * https://github.com/YummyLau/Anchors/blob/master/README-zh.md
+     */
+    object Anchors : AndroidDependency("com.effective.android", "anchors", "1.1.2")
+
+    /**
+     * 持久KV数据存储
+     * https://github.com/Tencent/MMKV/blob/master/readme_cn.md
+     */
+    object Mmkv : AndroidDependency("com.tencent", "mmkv-static", "1.2.4")
+
+    /**
+     * 颜色帮助库
+     * https://github.com/JorgeCastilloPrz/AndroidColorX
+     */
+    object ColorKtx : AndroidDependency("me.jorgecastillo", "androidcolorx", "0.2.0")
+
+    /**
+     * 背景生成工具库
+     * https://github.com/JavaNoober/BackgroundLibrary
+     */
+    object Background : AndroidDependency("com.noober.background", "core", "1.6.5")
+
+    /**
+     * 二维码扫描
+     * https://github.com/jenly1314/ZXingLite
+     */
+    object QrScanner : AndroidDependency("com.king.zxing", "zxing-lite", "1.1.9-androidx")
+
+    /**
+     * 时间处理库
+     * https://github.com/JodaOrg/joda-time
+     */
+    object JodaTime : AndroidDependency("joda-time", "joda-time", "2.10.8")
+
+    /**
+     * 自动消失LiveData
+     * https://github.com/KunMinX/UnPeek-LiveData
+     */
+    object UnPeekLiveData : AndroidDependency(
+        "com.kunminx.archi",
+        "unpeek-livedata",
+        "4.4.1-beta1"
+    )
+
+    /**
+     * 内存泄露监控
+     * https://square.github.io/leakcanary/getting_started/
+     */
+    object LeakCanary : AndroidDependency("com.squareup.leakcanary", "leakcanary-android", "2.5")
+
+    val newest: String
+        get() = build(version)
+
+    private fun build(version: String) = "$group:$name:$version"
+    fun custom(version: String) {
+        this.version = version
+    }
+
     /**
      *  https://developer.android.com/jetpack/androidx/releases/fragment
      */
@@ -62,7 +126,7 @@ sealed class AndroidDependency(
      */
     sealed class Component(
         name: String
-    ) : AndroidDependency("com.github.xiaojinzi123.Component", name, "v1.8.3.4-androidx-java8") {
+    ) : AndroidDependency("com.github.xiaojinzi123.Component", name, "v1.8.3.5-androidx-java8") {
 
         object Core : Component("component-impl")
         object Compiler : Component("component-compiler")
@@ -75,7 +139,7 @@ sealed class AndroidDependency(
      */
     sealed class Coroutines(
         name: String
-    ) : AndroidDependency("org.jetbrains.kotlinx", name, "1.4.0-M1") {
+    ) : AndroidDependency("org.jetbrains.kotlinx", name, "1.4.1") {
         object Core : Coroutines("kotlinx-coroutines-android")
         object Test : Coroutines("kotlinx-coroutines-test")
     }
@@ -108,7 +172,7 @@ sealed class AndroidDependency(
          * 图片转换库
          * https://github.com/wasabeef/glide-transformations
          */
-        object Transformation : AndroidDependency("jp.wasabeef", "glide-transformations", "4.1.0")
+        object Transformation : AndroidDependency("jp.wasabeef", "glide-transformations", "4.3.0")
     }
 
     /**
@@ -138,7 +202,7 @@ sealed class AndroidDependency(
      */
     sealed class Koin(
         name: String
-    ) : AndroidDependency("org.koin", name, "2.2.0-rc-1") {
+    ) : AndroidDependency("org.koin", name, "2.2.0-rc-4") {
         object Core : Koin("koin-core")
         object Scope : Koin("koin-androidx-scope")
         object ViewModel : Koin("koin-androidx-viewmodel")
@@ -199,17 +263,11 @@ sealed class AndroidDependency(
      */
     sealed class Room(
         name: String
-    ) : AndroidDependency("androidx.room", name, "2.3.0-alpha03") {
+    ) : AndroidDependency("androidx.room", name, "2.2.5") {
         object Core : Room("room-runtime")
         object Ktx : Room("room-ktx")
         object Compiler : Room("room-compiler")
         object Test : Room("room-testing")
-    }
-
-    object Test {
-        object Junit : AndroidDependency("junit", "junit", "4.13")
-        object JunitExt : AndroidDependency("androidx.test.ext", "junit", "1.1.2-rc02")
-        object Espresso : AndroidDependency("androidx.test.espresso", "espresso-core", "3.3.0-rc02")
     }
 
     class View {
@@ -239,13 +297,13 @@ sealed class AndroidDependency(
         object ConstraintLayout : AndroidDependency(
             "androidx.constraintlayout",
             "constraintlayout",
-            "2.0.2"
+            "2.0.4"
         )
 
         /**
          * https://developer.android.com/jetpack/androidx/releases/recyclerview
          */
-        object Recyclerview : AndroidDependency(
+        object RecyclerView : AndroidDependency(
             "androidx.recyclerview",
             "recyclerview",
             "1.2.0-alpha06"
@@ -278,7 +336,7 @@ sealed class AndroidDependency(
         object BlurView : AndroidDependency(
             "com.eightbitlab",
             "blurview",
-            "1.6.4"
+            "1.6.5"
         )
 
         /**
@@ -317,7 +375,7 @@ sealed class AndroidDependency(
         object ShadowLayout : AndroidDependency(
             "com.github.lihangleo2",
             "ShadowLayout",
-            "3.0.4"
+            "3.1.2"
         )
 
         /**
@@ -328,6 +386,11 @@ sealed class AndroidDependency(
             "agentweb",
             "4.1.4"
         )
+
+        /**
+         * FlexBox
+         */
+        object FlexBox : AndroidDependency("com.google.android", "flexbox", "2.0.1")
     }
 
     /**
@@ -336,7 +399,7 @@ sealed class AndroidDependency(
      */
     sealed class XPopup(
         name: String
-    ) : AndroidDependency("com.lxj", name, "2.1.4") {
+    ) : AndroidDependency("com.lxj", name, "2.1.15") {
         object Core : XPopup("xpopup")
     }
 
@@ -346,66 +409,33 @@ sealed class AndroidDependency(
      */
     sealed class WorkerManager(
         name: String
-    ) : AndroidDependency("androidx.work", name, "2.5.0-alpha03") {
+    ) : AndroidDependency("androidx.work", name, "2.5.0-beta01") {
         object Core : WorkerManager("work-runtime-ktx")
         object AndroidTest : WorkerManager("work-testing")
     }
 
     /**
-     * 多功能工具包
-     * https://github.com/Blankj/AndroidUtilCode
+     * 网络请求监控
+     * https://github.com/ChuckerTeam/chucker
      */
-    object AndroidUtil : AndroidDependency("com.blankj", "utilcodex", "1.29.0")
+    sealed class Chucker(name: String) : AndroidDependency(
+        "com.github.chuckerteam.chucker",
+        name,
+        "library"
+    ) {
+        object Debug : Chucker("library")
+        object Release : Chucker("library-no-op")
+    }
 
     /**
-     * app启动初始化管理
-     * https://github.com/YummyLau/Anchors/blob/master/README-zh.md
+     * 奔溃日志收集
+     * https://github.com/iqiyi/xCrash/blob/master/README.zh-CN.md
      */
-    object Anchors : AndroidDependency("com.effective.android", "anchors", "1.1.2")
+    object XCrash : AndroidDependency("com.iqiyi.xcrash", "xcrash-android-lib", "3.0.0")
 
     /**
-     * 持久KV数据存储
-     * https://github.com/Tencent/MMKV/blob/master/readme_cn.md
+     * Alerter弹窗
+     * https://github.com/Tapadoo/Alerter
      */
-    object Mmkv : AndroidDependency("com.tencent", "mmkv-static", "1.2.4")
-
-    /**
-     * 颜色帮助库
-     * https://github.com/JorgeCastilloPrz/AndroidColorX
-     */
-    object ColorKtx : AndroidDependency("me.jorgecastillo", "androidcolorx", "0.2.0")
-
-    /**
-     * 背景生成工具库
-     * https://github.com/JavaNoober/BackgroundLibrary
-     */
-    object Background : AndroidDependency("com.noober.background", "core", "1.6.5")
-
-    /**
-     * 二维码扫描
-     * https://github.com/jenly1314/ZXingLite
-     */
-    object QrScanner : AndroidDependency("com.king.zxing", "zxing-lite", "1.1.9-androidx")
-
-    /**
-     * 时间处理库
-     * https://github.com/JodaOrg/joda-time
-     */
-    object JodaTime : AndroidDependency("joda-time", "joda-time", "2.10.7")
-
-    /**
-     * 自动消失LiveData
-     * https://github.com/KunMinX/UnPeek-LiveData
-     */
-    object UnPeekLiveData : AndroidDependency(
-        "com.kunminx.archi",
-        "unpeek-livedata",
-        "4.2.0-beta1"
-    )
-
-    /**
-     * 内存泄露监控
-     * https://square.github.io/leakcanary/getting_started/
-     */
-    object LeakCanary : AndroidDependency("com.squareup.leakcanary", "leakcanary-android", "2.5")
+    object Alerter : AndroidDependency("com.tapadoo.android", "alerter", "6.2.1")
 }
