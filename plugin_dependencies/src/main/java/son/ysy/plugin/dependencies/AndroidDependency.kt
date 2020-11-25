@@ -1,40 +1,38 @@
 package son.ysy.plugin.dependencies
 
-import kotlin.reflect.full.staticProperties
-
-private fun main() {
-    sortSingle()
-    sortGroup()
-    sortView()
-}
-
-private fun sortSingle() {
-    println("------------------Single---------------------------")
-    AndroidDependency.Single::class.nestedClasses
-        .map { it.simpleName }
-        .sortedBy { it }
-        .forEach(::println)
-    println("++++++++++++++++++++Single+++++++++++++++++++++++++")
-}
-
-private fun sortGroup() {
-    println("------------------Group---------------------------")
-    AndroidDependency::class.nestedClasses
-        .map { it.simpleName }
-        .filterNot { it == "Single" }
-        .sortedBy { it }
-        .forEach(::println)
-    println("++++++++++++++++++++Group+++++++++++++++++++++++++")
-}
-
-private fun sortView() {
-    println("------------------View---------------------------")
-    AndroidDependency.View::class.nestedClasses
-        .map { it.simpleName }
-        .sortedBy { it }
-        .forEach(::println)
-    println("++++++++++++++++++++View+++++++++++++++++++++++++")
-}
+//private fun main() {
+//    sortSingle()
+//    sortGroup()
+//    sortView()
+//}
+//
+//private fun sortSingle() {
+//    println("------------------Single---------------------------")
+//    AndroidDependency.Single::class.nestedClasses
+//        .map { it.simpleName }
+//        .sortedBy { it }
+//        .forEach(::println)
+//    println("++++++++++++++++++++Single+++++++++++++++++++++++++")
+//}
+//
+//private fun sortGroup() {
+//    println("------------------Group---------------------------")
+//    AndroidDependency::class.nestedClasses
+//        .map { it.simpleName }
+//        .filterNot { it == "Single" }
+//        .sortedBy { it }
+//        .forEach(::println)
+//    println("++++++++++++++++++++Group+++++++++++++++++++++++++")
+//}
+//
+//private fun sortView() {
+//    println("------------------View---------------------------")
+//    AndroidDependency.View::class.nestedClasses
+//        .map { it.simpleName }
+//        .sortedBy { it }
+//        .forEach(::println)
+//    println("++++++++++++++++++++View+++++++++++++++++++++++++")
+//}
 
 sealed class AndroidDependency(val group: String, val module: String, var version: String) {
 
@@ -74,7 +72,7 @@ sealed class AndroidDependency(val group: String, val module: String, var versio
          * 多功能工具包
          * https://github.com/Blankj/AndroidUtilCode
          */
-        object AndroidUtil : Single("com.blankj", "utilcodex", "1.30.4")
+        object AndroidUtil : Single("com.blankj", "utilcodex", "1.30.5")
 
         /**
          * https://developer.android.com/jetpack/androidx/releases/appcompat
@@ -97,6 +95,12 @@ sealed class AndroidDependency(val group: String, val module: String, var versio
          * https://developer.android.com/jetpack/androidx/releases/core
          */
         object CoreKtx : Single("androidx.core", "core-ktx", "1.5.0-alpha05")
+
+        /**
+         * 多媒体选择库
+         * https://github.com/yangpeixing/YImagePicker
+         */
+        object ImagePicker : AndroidDependency("com.ypx.yimagepicker", "androidx", "3.1.4")
 
         /**
          * 时间处理库
@@ -137,7 +141,8 @@ sealed class AndroidDependency(val group: String, val module: String, var versio
          * 微信开发Sdk
          *  https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Resource_Center_Homepage.html
          */
-        object WeChat:AndroidDependency("com.tencent.mm.opensdk", "wechat-sdk-android-without-mta", "6.6.5")
+        object WeChat :
+            AndroidDependency("com.tencent.mm.opensdk", "wechat-sdk-android-without-mta", "6.6.5")
 
         /**
          * 奔溃日志收集
@@ -213,7 +218,7 @@ sealed class AndroidDependency(val group: String, val module: String, var versio
      */
     sealed class Epoxy(
         name: String
-    ) : AndroidDependency("com.airbnb.android", name, "4.1.0") {
+    ) : AndroidDependency("com.airbnb.android", name, "4.2.0") {
         object Core : Epoxy("epoxy")
         object Compiler : Epoxy("epoxy-processor")
         object Glide : Epoxy("epoxy-glide-preloading")
@@ -317,7 +322,7 @@ sealed class AndroidDependency(val group: String, val module: String, var versio
      */
     sealed class Paris(
         name: String
-    ) : AndroidDependency("com.airbnb.android", name, "1.7.1") {
+    ) : AndroidDependency("com.airbnb.android", name, "1.7.2") {
         object Core : Paris("paris")
         object Compiler : Paris("paris-processor")
     }
@@ -422,7 +427,7 @@ sealed class AndroidDependency(val group: String, val module: String, var versio
         object LottieView : AndroidDependency(
             "com.airbnb.android",
             "lottie",
-            "3.4.4"
+            "3.5.0"
         )
 
         /**
