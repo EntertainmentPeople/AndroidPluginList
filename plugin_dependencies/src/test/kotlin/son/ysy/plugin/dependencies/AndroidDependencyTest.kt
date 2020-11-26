@@ -8,16 +8,18 @@ import son.ysy.plugin.dependencies.model.AndroidDependencyModel
 import son.ysy.plugin.dependencies.model.single.SingleDependency
 import java.io.File
 import java.lang.Error
-import kotlin.random.Random
 
 class AndroidDependencyTest : TestCase() {
 
+    private object DependencyValues {
+        val packageList = listOf("son", "ysy", "plugin", "dependencies")
+    }
 
     private object DependencyProperties {
         const val KEY_GROUP = "group"
         const val KEY_MODULE = "module"
         const val KEY_VERSION = "version"
-        const val KEY_FULL_MAVEN = "fullMaven"
+        const val KEY_FULL_GRADLE = "fullGradle"
     }
 
     private object DependencyFunctions {
@@ -26,7 +28,7 @@ class AndroidDependencyTest : TestCase() {
     }
 
     private object DependencyClasses {
-        val KEY_CLASS_TOP = "AndroidDependency${Random.nextInt(1, 10000)}"
+        const val KEY_CLASS_TOP = "AndroidDependencyAutoCreated"
         const val KEY_CLASS_SINGLE = "Single"
         const val KEY_CLASS_VIEW = "View"
         const val KEY_CLASS_TEST = "Test"
@@ -62,6 +64,12 @@ class AndroidDependencyTest : TestCase() {
         getDependencyModel().sorted()
             .run(jsonAdapter::toJson)
             .apply(::println)
+    }
+
+    @Test
+    fun testCreateAll() {
+        testCreateKt()
+        testCreateMd()
     }
 
     @Test
@@ -119,9 +127,9 @@ class AndroidDependencyTest : TestCase() {
                 )
                 .build()
         )
-        //声明AndroidDependency fullMaven计算属性
+        //声明AndroidDependency fullGradle计算属性
         androidDependencyClassBuilder.addProperty(
-            PropertySpec.builder(DependencyProperties.KEY_FULL_MAVEN, String::class)
+            PropertySpec.builder(DependencyProperties.KEY_FULL_GRADLE, String::class)
                 .getter(
                     FunSpec.getterBuilder()
                         .addCode("return build(${DependencyProperties.KEY_VERSION})")
@@ -134,6 +142,9 @@ class AndroidDependencyTest : TestCase() {
             FunSpec.builder(DependencyFunctions.KEY_CUSTOM_VERSION)
                 .addParameter(DependencyProperties.KEY_VERSION, String::class)
                 .addStatement("this.${DependencyProperties.KEY_VERSION}=${DependencyProperties.KEY_VERSION}")
+                .addCode(
+                    "return ${DependencyFunctions.KEY_BUILD}(${DependencyProperties.KEY_VERSION})"
+                ).returns(String::class)
                 .build()
         )
         buildSingleClassSpec(DependencyClasses.KEY_CLASS_SINGLE, dependencyModel.single)
@@ -144,16 +155,32 @@ class AndroidDependencyTest : TestCase() {
 
         dependencyModel.group
             .map { group ->
-                val groupBuilder = TypeSpec.objectBuilder(group.name)
+                val groupBuilder = TypeSpec.classBuilder(group.name)
+                    .addModifiers(KModifier.SEALED)
+                    .primaryConstructor(
+                        FunSpec.constructorBuilder()
+                            .addParameter(DependencyProperties.KEY_MODULE, String::class)
+                            .build()
+                    ).superclass(ClassName("", DependencyClasses.KEY_CLASS_TOP))
+                    .addSuperclassConstructorParameter("%S", DependencyProperties.KEY_GROUP)
+                    .addSuperclassConstructorParameter(DependencyProperties.KEY_MODULE)
+                    .addSuperclassConstructorParameter("%S", DependencyProperties.KEY_VERSION)
+
                 getKDoc(group.remark, group.link)?.apply(groupBuilder::addKdoc)
 
                 group.modules
                     .map { child ->
                         val childBuilder = TypeSpec.objectBuilder(child.name)
-                            .superclass(ClassName("", DependencyClasses.KEY_CLASS_TOP))
-                            .addSuperclassConstructorParameter("%S", child.group ?: group.group)
-                            .addSuperclassConstructorParameter("%S", child.module)
-                            .addSuperclassConstructorParameter("%S", child.version ?: group.version)
+                        if (!child.group.isNullOrBlank() && !child.version.isNullOrBlank()) {
+                            childBuilder.superclass(ClassName("", DependencyClasses.KEY_CLASS_TOP))
+                                .addSuperclassConstructorParameter("%S", child.group)
+                                .addSuperclassConstructorParameter("%S", child.version)
+                        } else {
+                            childBuilder.superclass(ClassName("", group.name))
+                        }
+                        childBuilder.addSuperclassConstructorParameter("%S", child.module)
+
+
                         getKDoc(child.remark, child.link)?.apply(childBuilder::addKdoc)
                         childBuilder.build()
                     }.forEach {
@@ -169,15 +196,15 @@ class AndroidDependencyTest : TestCase() {
             .apply(androidDependencyClassBuilder::addType)
 
         val fileSpec = FileSpec.builder(
-            "son.ysy.plugin.dependencies",
+            DependencyValues.packageList.joinToString("."),
             DependencyClasses.KEY_CLASS_TOP
         ).addType(androidDependencyClassBuilder.build())
             .build()
-        val dir = File(
-            File("").absolutePath, "src${File.separator}main${File.separator}java${File.separator}"
-        )
+
+        val rootPathList = listOf("src", "test", "kotlin")
+
         fileSpec.writeTo(System.out)
-        fileSpec.writeTo(dir)
+        fileSpec.writeTo(File(rootPathList.joinToString(File.separator)))
     }
 
     private fun getKDoc(remark: String?, link: String?) = listOf(remark, link)
@@ -203,5 +230,69 @@ class AndroidDependencyTest : TestCase() {
             singleClassBuilder.addType(it)
         }
         return singleClassBuilder.build()
+    }
+
+    @Test
+    fun testCreateMd() {
+        val dependencyModel = getDependencyModel()
+
+        val sb = StringBuilder()
+
+        sb.appendMdLine("# 三方依赖库版本整理(${dependencyModel.version})")
+
+        createSingleMd(dependencyModel.single, sb)
+        sb.append("\n")
+        createSingleMd(dependencyModel.view, sb)
+        dependencyModel.group.forEach { group ->
+            sb.append("\n")
+            val groupName = group.name.takeIf {
+                group.link.isNullOrBlank()
+            } ?: "[${group.name}](${group.link})"
+
+            sb.appendMdLine("|$groupName|${group.group}|${group.remark ?: ""}|")
+            sb.appendMdLine("|:-:|:-:|:-:|")
+
+            group.modules.forEach { child ->
+                val childName = child.name.takeIf { child.link.isNullOrBlank() }
+                    ?: "[${child.name}](${child.group})"
+                val childModule = child.module.takeIf {
+                    child.group.isNullOrBlank() || child.version.isNullOrBlank()
+                } ?: "${child.group}:${child.module}:${child.version}"
+                val childVersion = group.version.takeIf {
+                    child.remark.isNullOrBlank()
+                } ?: child.remark
+                sb.appendMdLine("|$childName|$childModule|$childVersion|")
+            }
+        }
+        sb.append("\n")
+        createSingleMd(dependencyModel.test, sb)
+
+        File("ReadMe.auto.md").writeText(sb.toString())
+    }
+
+    private fun StringBuilder.appendMdLine(line: String) {
+        append(line)
+        append("  \n")
+    }
+
+    private fun createSingleMd(list: List<SingleDependency>, sb: StringBuilder) {
+        sb.appendMdLine("|name|group|module|version|remark|")
+        sb.appendMdLine("|:-:|:-:|:-:|:-:|:-:|")
+        list.forEach { single ->
+            val name = single.name.takeIf {
+                single.link.isNullOrBlank()
+            } ?: "[${single.name}](${single.link})"
+            val singleLine =
+                listOf(
+                    name,
+                    single.group,
+                    single.module,
+                    single.version,
+                    single.remark ?: ""
+                ).joinToString(separator = "|", postfix = "|", prefix = "|")
+            sb.appendMdLine(
+                singleLine,
+            )
+        }
     }
 }
