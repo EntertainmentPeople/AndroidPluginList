@@ -1,4 +1,4 @@
-# 三方依赖库版本整理(1.3.6)  
+# 三方依赖库版本整理(1.3.8)
 |                                               name                                                |          group          |             module             |    version     |      remark       |
 | :-----------------------------------------------------------------------------------------------: | :---------------------: | :----------------------------: | :------------: | :---------------: |
 |           [Activity](https://developer.android.com/jetpack/androidx/releases/activity)            |    androidx.activity    |          activity-ktx          |  1.2.0-beta01  |                   |

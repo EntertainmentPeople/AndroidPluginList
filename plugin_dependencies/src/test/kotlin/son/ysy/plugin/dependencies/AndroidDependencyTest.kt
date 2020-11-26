@@ -162,9 +162,9 @@ class AndroidDependencyTest : TestCase() {
                             .addParameter(DependencyProperties.KEY_MODULE, String::class)
                             .build()
                     ).superclass(ClassName("", DependencyClasses.KEY_CLASS_TOP))
-                    .addSuperclassConstructorParameter("%S", DependencyProperties.KEY_GROUP)
+                    .addSuperclassConstructorParameter("%S", group.group)
                     .addSuperclassConstructorParameter(DependencyProperties.KEY_MODULE)
-                    .addSuperclassConstructorParameter("%S", DependencyProperties.KEY_VERSION)
+                    .addSuperclassConstructorParameter("%S", group.version)
 
                 getKDoc(group.remark, group.link)?.apply(groupBuilder::addKdoc)
 
