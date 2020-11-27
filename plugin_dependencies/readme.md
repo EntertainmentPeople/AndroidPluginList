@@ -1,4 +1,4 @@
-# 三方依赖库版本整理(1.3.8)
+# 三方依赖库版本整理(1.3.9)
 |                                               name                                                |          group          |             module             |    version     |      remark       |
 | :-----------------------------------------------------------------------------------------------: | :---------------------: | :----------------------------: | :------------: | :---------------: |
 |           [Activity](https://developer.android.com/jetpack/androidx/releases/activity)            |    androidx.activity    |          activity-ktx          |  1.2.0-beta01  |                   |
@@ -48,8 +48,8 @@
 
 | [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) |   org.jetbrains.kotlinx    | 协程  |
 | :--------------------------------------------------------: | :------------------------: | :---: |
-|                            Core                            | kotlinx-coroutines-android | 1.4.1 |
-|                            Test                            |  kotlinx-coroutines-test   | 1.4.1 |
+|                            Core                            | kotlinx-coroutines-android | 1.4.2 |
+|                            Test                            |  kotlinx-coroutines-test   | 1.4.2 |
 
 | [DownloadAndUpload](https://github.com/AriaLyy/Aria) | com.arialyy.aria | 文件下载与上传 |
 | :--------------------------------------------------: | :--------------: | :------------: |
